@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tetris v1</title>
+    <script src="/js/vue.js"></script>
+    <style>
+        #tetris {
+            /*border: 1px solid black;*/
+        }
+        .row {
+            height: 10px;
+        }
+
+        .cell {
+            border: 1px solid black;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+        }
+
+        .empty {
+            background-color: grey;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .magenta {
+            background-color: magenta;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .cyan {
+            background-color: cyan;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="tetris">
+        <h1>Score: {{ score }}</h1>
+        <div id="controls">
+                <button @click="stop">Stop</button>
+                <button @click="shiftLeft">Left</button>
+                <button @click="shiftRight">Right</button>
+                <button @click="rotate">Rotate</button>
+        </div>
+        <div @keyup.left="shiftLeft" @keyup.right="shiftRight" class="row" v-for="row in grid">
+                <div class="cell" v-bind:class="cell !== false ? cell.color : '' " v-for="cell in row">
+                </div>
+        </div>
+    </div>
+    <script src="/js/tetris.js"></script>
+</body>
+</html>
