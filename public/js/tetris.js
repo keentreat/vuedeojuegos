@@ -264,6 +264,12 @@ var Tetris = new Vue({
 			var axisCoordinate = this.position[axisIndex];
 
 			for (var i = 0; i < this.position.length; i++) {
+
+				if (i < axisIndex) {
+					
+				} else {
+					
+				}
 				var row = this.position[i][0];
 				var col = this.position[i][1];
 
